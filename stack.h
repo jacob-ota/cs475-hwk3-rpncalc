@@ -17,7 +17,7 @@ struct Stack
 
 //function declarations
 int size();
-void push(double);
+void push(double dataVal);
 double pop();
 
 #endif /* STACK_H_ */

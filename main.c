@@ -27,7 +27,9 @@ int main()
 	//first time asking for user input
 	printf("Enter and equation (in RPN): \n");
 	fgets(eqn, MAX_EQ_LEN, stdin);
-
+	//call the evaluate function to do all the work
+	evaluate(eqn);
+	
 	printf("\n");
 	//while loop for next input(s)
 	while (cont) {
@@ -55,6 +57,8 @@ int main()
 		//ask for another equation
 		printf("Enter and equation (in RPN): \n");
 		fgets(eqn, MAX_EQ_LEN, stdin);
+		//call the evaluate function to do all the work
+		evaluate(eqn);
 
 		printf("\n");
 	}
