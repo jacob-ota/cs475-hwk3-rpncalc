@@ -9,5 +9,15 @@
 #define STACK_H_
 
 // TODO: declaration of stack struct and its functions go here
+struct Stack
+{
+    double value;
+    struct Stack* nextNodePointer;
+};
+
+//function declarations
+int size();
+void push(double);
+double pop();
 
 #endif /* STACK_H_ */
