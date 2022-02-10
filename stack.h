@@ -8,6 +8,8 @@
 #ifndef STACK_H_
 #define STACK_H_
 
+int stack_size;
+
 // TODO: declaration of stack struct and its functions go here
 typedef struct Node_struct
 {

@@ -19,22 +19,29 @@ void push(double data) {
     if(head == NULL) {
         head = newNode;
         current = head;
-        printf("Home: %lf\n", current->value);
         stack_size++;
     }
     //else push it to the top of the stack
     else {
-        Node* temp = NULL;
-        temp = current->nextNodePointer;
-        current->nextNodePointer = newNode;
-        newNode->nextNodePointer = temp;
+        //new nodes pointer points at the element next on stack and becomes new current
+        newNode->nextNodePointer = current;
         current = newNode;
-        printf("Next: %lf\n", current -> value);
         stack_size++;
     } 
 }
 
 double pop() {
-
-    return 0.0;
+    Node* poppedNode;
+    double poppedVal;
+    //get value to be returned
+    poppedVal = current->value;
+    poppedNode = current;
+    //change current to the next node on stack
+    if (stack_size > 1) {
+        current = current->nextNodePointer;
+    }
+    //deallocate the old node
+    free(poppedNode);
+    stack_size--;
+    return poppedVal;
 }

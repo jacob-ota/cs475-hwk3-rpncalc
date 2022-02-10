@@ -7,25 +7,71 @@
 #include "stack.h"
 
 double evaluate(char* equation) {
+    stack_size = 0;
     double checkDub;
     int checkPunct;
     equation = strtok(equation, "  \n \t");
     while(equation != NULL) {
         checkDub = atof(equation);
         checkPunct = ispunct(*equation);
+        double firstOp;
+        double secondOp;
+        double solution;
 
         //check what operator it is and do calculations
         if(checkPunct && *equation == '+') {
-            printf("This is a plus");
+            if(size() >= 2) {
+                secondOp = pop();
+                firstOp = pop();
+                solution = firstOp + secondOp;
+                push(solution);
+            }
+            else {
+                printf("Error: Insufficient number of operands!\n");
+                return 0.0;
+            }
         }
         else if(checkPunct && *equation == '-') {
-            printf("This is a minus");
+            if(size() >= 2) {
+                secondOp = pop();
+                firstOp = pop();
+                solution = firstOp - secondOp;
+                push(solution);
+            }
+            else {
+                printf("Error: Insufficient number of operands!\n");
+                return 0.0;
+            }
         }
         else if(checkPunct && *equation == '*') {
-            printf("This is a multi");
+            if(size() >= 2) {
+                secondOp = pop();
+                firstOp = pop();
+                solution = firstOp * secondOp;
+                push(solution);
+            }
+            else {
+                printf("Error: Insufficient number of operands!\n");
+                return 0.0;
+            }
         }
         else if(checkPunct && *equation == '/') {
-            printf("This is a div");
+            if(size() >= 2) {
+                secondOp = pop();
+                firstOp = pop();
+                if(secondOp == 0) {
+                    printf("Error: Divide-by-zero\n");
+                    return 0.0;
+                }
+                else {
+                    solution = firstOp / secondOp;
+                }
+                push(solution);
+            }
+            else {
+                printf("Error: Insufficient number of operands!\n");
+                return 0.0;
+            }
         }
         //if it isn't a operator then show error and break
         else if (checkPunct) {
@@ -48,5 +94,11 @@ double evaluate(char* equation) {
         }
         equation = strtok (NULL, "  \n \t");
     }
-    return 0.0;
+    if(size() > 1) {
+        printf("Error: Too many operands entered \n");
+        return 0.0;
+    }
+    else {
+        return pop();
+    }
 }
