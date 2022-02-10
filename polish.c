@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
+#include "stack.h"
 
 double evaluate(char* equation) {
     double checkDub;
@@ -29,20 +31,20 @@ double evaluate(char* equation) {
         else if (checkPunct) {
             char symbol = *equation;
             printf("Error: operator %c unrecognized.\n", symbol);
-            break;
+            return 0.0;
         }
 
         //if 0 is entered then return 0
         if(*equation == '0') {
-            checkDub = 0.0;
+            push(0.0);
         }
         //else if not a punct or a number then print error and break
         else if(checkDub == 0.0 && checkPunct == 0) {
             printf("Not a valid input! Only numbers and operators!\n");
-            break;
+            return 0.0;
         }
-        else {
-            printf("push this onto stack");
+        else if (checkDub != 0.0){
+            push(checkDub);
         }
         equation = strtok (NULL, "  \n \t");
     }

@@ -28,7 +28,7 @@ int main()
 	printf("Enter and equation (in RPN): \n");
 	fgets(eqn, MAX_EQ_LEN, stdin);
 	//call the evaluate function to do all the work
-	evaluate(eqn);
+	printf("%.3lf\n", evaluate(eqn));
 	
 	printf("\n");
 	//while loop for next input(s)
@@ -58,7 +58,7 @@ int main()
 		printf("Enter and equation (in RPN): \n");
 		fgets(eqn, MAX_EQ_LEN, stdin);
 		//call the evaluate function to do all the work
-		evaluate(eqn);
+		printf("%.3lf\n", evaluate(eqn));
 
 		printf("\n");
 	}

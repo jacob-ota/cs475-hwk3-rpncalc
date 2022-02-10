@@ -9,11 +9,11 @@
 #define STACK_H_
 
 // TODO: declaration of stack struct and its functions go here
-struct Stack
+typedef struct Node_struct
 {
     double value;
-    struct Stack* nextNodePointer;
-};
+    struct Node_struct* nextNodePointer;
+}Node;
 
 //function declarations
 int size();
