@@ -6,6 +6,13 @@
 #include <math.h>
 #include "stack.h"
 
+/**
+ * Evaluate takes in a char of an equation and evaluates
+ * all the elements of the equation based on the RPN algorithm.
+ * 
+ * @param char* the equation that is entered by user
+ * @returns double the solution of the equation
+ */
 double evaluate(char* equation) {
     stack_size = 0;
     double checkDub;

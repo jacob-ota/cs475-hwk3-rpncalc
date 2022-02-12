@@ -7,10 +7,20 @@ int stack_size = 0;
 Node* head = NULL;
 Node* current = NULL;
 
+/**
+ * Returns the size of the stack.
+ * 
+ * @returns int the size of stack
+ */
 int size() {
     return stack_size;
 }
 
+/**
+ * Pushes an element onto the top of the stack.
+ * 
+ * @param double the value pushed onto the stack
+ */
 void push(double data) {
     //allocate memory for a new Node struct and store data
     Node* newNode = (Node*)malloc(sizeof(Node));
@@ -30,6 +40,13 @@ void push(double data) {
     } 
 }
 
+/**
+ * Pops the top element off, returns the value of the
+ * element just popped and then fixes the stack and points
+ * to the new top of the stack.
+ * 
+ * @returns double the value that is popped
+ */
 double pop() {
     Node* poppedNode;
     double poppedVal;
